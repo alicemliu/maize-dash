@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+	<style>
+    .modal{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.7);
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+
+    .modal_content{
+        width: 1000px;
+        height: 800px;
+        background-color: #E1C323;
+        border-radius: 4px;
+        position:relative;
+    }
+
+    .close{
+        position: absolute;
+        top:0;
+        right: 14px;
+        font-size: 42px;
+        transform: rotate(45deg);
+        cursor: pointer;
+    }
+
+        #add_widget{
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        left: 700px;
+        top: 700px;
+        background: #E1C323;
+        text-align: center;
+        color: #2A3592;
+        font-size: 42px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+<h1>hello</h1>
+	<div id="dashboard">
+    <div id="add_widget" >
+        +
+        <script type="text/javascript">
+            const div = document.getElementById('add_widget');
+            div.addEventListener('click', function() {
+                document.querySelector(".modal").style.display = "flex";
+            });
+        </script>
+
+        <!--WHY DOESN"T THIS WORK
+        <script src='../schedule.js'>
+        </script>
+        -->
+
+    </div>
+
+ <div class="modal">
+        <div class="modal_content">
+            <div class="close" id="close">+
+                <script type="text/javascript">
+                    const close = document.getElementById('close');
+                    close.addEventListener('click', function(){
+                        document.querySelector(".modal").style.display = "none";
+                    });
+                </script>
+            </div>
+
+            Add Widget
+            <form action="dash.html" method="GET">
+            	<label for="url_name">Please enter the Spotify URI you wish to embed</label><br>
+            	<input type="text" id="url_name" name="url_name"><br>
+            	<input type="submit" value="Submit">
+            </form>
+        </div>
+</div>
+    <h1>This is a test </h1>
+
+
+    </body>
+
+    <script>
+    	const dash_list = document.getElementById("dashboard")
+    	new URLSearchParams(window.location.search).forEach((value,url_name) => {
+    		var iframe = document.createElement('iframe')
+    		var parse_playlist = `${value}`
+    		var playlist_src = "https://open.spotify.com/embed/playlist/" + parse_playlist.substring(17,)
+    		iframe.src = playlist_src
+    		iframe.style.width = "640px"
+    		iframe.style.height = "640px"
+    		console.log("playlist src is: " + playlist_src)
+    		dash_list.append(iframe)
+    	});
+    </script>
+</html>
