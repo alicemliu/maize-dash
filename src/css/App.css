@@ -38,13 +38,24 @@ main {
   min-width: 10vw;
 }
 
-/* overriding default spacing */
+/* overriding defaults */
 
 h1 {
   margin: 0;
   padding: 0;
 }
 
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
 p {
   margin: 0;
+  font-weight: 300;
 }
