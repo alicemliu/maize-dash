@@ -1,16 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './css/timer.css';
+import '../css/App.css';
+import '../css/timer.css';
+
+
 
 
 let root = document.getElementById("root");
 
 document.addEventListener("DOMContentLoaded", () => {
-    ReactDOM.render(<Layout />, root);
+    ReactDOM.render(<Timer />, root);
 });
 
 
-class Layout extends React.Component{
+export default class Timer extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -38,6 +41,7 @@ class Layout extends React.Component{
                     if(this.state.hours == 0 && this.state.minutes == 0 && this.state.seconds == 0){
                         //alert or something
                     }
+                    this.setState((prevState) => ({seconds: prevState.seconds - 1}));
                 }
                 
             }, 1000);
@@ -62,11 +66,11 @@ class Layout extends React.Component{
         clearInterval(this.timer);
 
         if(this.state.minutes >= 59){
-            this.setState((prevState) => ({hours: prevState.hours + 1, minutes: 0}));
+            this.setState(prevState => ({hours: prevState.hours + 1, minutes: 0}));
         }
 
         else{
-            this.setState((prevState) => ({minutes: prevState.minutes + 1}))
+            this.setState(prevState => ({minutes: prevState.minutes + 1}))
         }
 
     }
@@ -82,7 +86,7 @@ class Layout extends React.Component{
                     <div className ="timer-controls">
                         <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>Start Timer</button>
                         <button className="btn btn-alert" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
-                        <button className="btn btn-info">Set timer</button>
+                        <button className="btn btn-info" onClick={this.handleTimerSet.bind(this)}>Set timer</button>
                         <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset timer</button>
                     </div>
                 </div>
