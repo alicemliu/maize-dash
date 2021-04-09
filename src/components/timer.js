@@ -51,7 +51,7 @@ export default class Timer extends React.Component{
         clearInterval(this.timer);
     }
 
-    handleTimerSet(){
+    handleTimerSetMinute(){
         this.setState({timerStarted: false, timerStopped: true});
         clearInterval(this.timer);
 
@@ -65,6 +65,15 @@ export default class Timer extends React.Component{
 
     }
 
+    handleTimerSetHour(){
+        this.setState({timerStarted: false, timerStopped: true});
+        clearInterval(this.timer);
+        
+        this.setState(prevState => ({hours: prevState.hours + 1}))
+        
+
+    }
+
     render(){
         return(
                 <div className="time-container">
@@ -74,7 +83,8 @@ export default class Timer extends React.Component{
                     <div className ="timer-controls">
                         <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>Start Timer</button>
                         <button className="btn btn-alert" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
-                        <button className="btn btn-info" onClick={this.handleTimerSet.bind(this)}>Set timer</button>
+                        <button className="btn btn-info" onClick={this.handleTimerSetHour.bind(this)}>Add Hour</button>
+                        <button className="btn btn-info" onClick={this.handleTimerSetMinute.bind(this)}>Add minute</button>
                         <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset timer</button>
                     </div>
                 </div>
