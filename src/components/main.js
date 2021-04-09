@@ -12,6 +12,7 @@ import Switch from '@material-ui/core/Switch';
 import '../css/App.css';
 import ToDoList from "./todolist";
 import TimeDate from "./date";
+import Timer from "./timer";
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -20,7 +21,7 @@ export default class Main extends React.Component {
       right: false,
       showDate: true,
       showToDo: true,
-      item3: true,
+      showTimer: true,
     }
 
     this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -52,8 +53,8 @@ export default class Main extends React.Component {
           label="To Do List"
         />
         <FormControlLabel
-          control={<Switch checked={this.state.item3} onChange={this.handleChange} name="item3" />}
-          label="item3"
+          control={<Switch checked={this.state.showTimer} onChange={this.handleChange} name="showTimer" />}
+          label="Timer"
         />
     </FormGroup>
     </div>
@@ -77,7 +78,7 @@ export default class Main extends React.Component {
             { this.state.showToDo && <div className="widget"><ToDoList/></div> }
           </Grid>
           <Grid item xs={12} md={8}>
-            <div className="widget"><ToDoList/></div>
+            { this.state.showTimer && <div className="widget"><Timer/></div> }
             <div className="widget"><ToDoList/></div>
           </Grid>
         </Grid>
