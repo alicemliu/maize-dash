@@ -8,7 +8,7 @@ export default class Timer extends React.Component{
         super(props);
         this.state = {
             timerStarted: false,
-            timerStopped: false,
+            timerStopped: true,
             hours: 0,
             minutes: 25,
             seconds: 0
