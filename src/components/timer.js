@@ -10,8 +10,8 @@ export default class Timer extends React.Component{
             timerStarted: false,
             timerStopped: true,
             hours: 0,
-            minutes: 25,
-            seconds: 0
+            minutes: 0,
+            seconds: 5
 
         }
     }
@@ -23,19 +23,31 @@ export default class Timer extends React.Component{
                 this.setState({timerStarted: true, timerStopped: false});
                 if(this.state.timerStarted) {
                     if(this.state.seconds <= 0){
+                        console.log("Tick")
                         this.setState((prevState) => ({ minutes: prevState.minutes - 1, seconds: 59 }))
                     }
                     if(this.state.minutes < 0 && this.state.hours > 0) {
+                        console.log("Tock")
                         this.setState((prevState) => ({ hours: prevState.hours - 1, minutes: 59 }))
                     }
-                    if(this.state.hours == 0 && this.state.minutes == 0 && this.state.seconds == 0){
+                    if(this.state.hours === 0 && this.state.minutes === 0 && this.state.seconds === 0){
                         //alert or something
+                        console.log("Timer ended")
+                        // stop timer
+//                        e.preventDefault();
+//                        this.setState({timerStarted: false, timerStopped: true});
+//                        clearInterval(this.timer);
                     }
                     this.setState((prevState) => ({seconds: prevState.seconds - 1}));
                 }
                 
             }, 1000);
         }
+//        else {
+//            this.state.hours = 0;
+//            this.state.minutes = 0;
+//            this.state.seconds = 0;
+//        }
     }
 
     handleTimerStop(e){
@@ -75,10 +87,22 @@ export default class Timer extends React.Component{
     }
 
     render(){
+        // format time to look like 00:00:00
+        var hoursStr = this.state.hours
+        var minutesStr = this.state.minutes
+        var secondsStr = this.state.seconds
+        if (this.state.hours < 10)
+            hoursStr = "0" + this.state.hours
+        if (this.state.minutes < 10)
+            minutesStr = "0" + this.state.minutes
+        if (this.state.seconds < 10)
+            secondsStr = "0" + this.state.seconds
+            
+        // render time
         return(
                 <div className="time-container">
                     <div className ="current-timer">
-                        {this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds}
+                        {hoursStr + ":" + minutesStr + ":" + secondsStr}
                     </div>
                     <div className ="timer-controls">
                         <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>Start Timer</button>
