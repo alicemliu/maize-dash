@@ -1,17 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 import '../css/App.css';
 import '../css/timer.css';
-
-
-
-
-let root = document.getElementById("root");
-
-document.addEventListener("DOMContentLoaded", () => {
-    ReactDOM.render(<Timer />, root);
-});
-
 
 export default class Timer extends React.Component{
     constructor(props){
@@ -77,8 +67,6 @@ export default class Timer extends React.Component{
 
     render(){
         return(
-            <div className="container">
-                <b>Timer</b>
                 <div className="time-container">
                     <div className ="current-timer">
                         {this.state.hours + ":" + this.state.minutes + ":" + this.state.seconds}
@@ -90,7 +78,6 @@ export default class Timer extends React.Component{
                         <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset timer</button>
                     </div>
                 </div>
-            </div>
         );
     }
 }
