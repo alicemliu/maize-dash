@@ -5,7 +5,7 @@ import '../css/App.css';
 import '../css/qotd.css';
 
 export default function QOTD() {
-  var [quote, setQuote] = useState(null);
+  var [quote, setQuote] = useState({});
 
   useEffect(() => {
     fetch("https://quotes.rest/qod", { 'method': 'GET'})
@@ -14,7 +14,8 @@ export default function QOTD() {
          return response.json();
     })
     .then((data) => {
-          setQuote(data.contents.quotes[0].quote + " - " + data.contents.quotes[0].author)
+          setQuote(data.contents.quotes[0])
+          //data.contents.quotes[0].quote + " - " + data.contents.quotes[0].author
     })
     .catch((error) => console.log(error));
   });
@@ -22,7 +23,7 @@ export default function QOTD() {
   return (
     <div >
       <h2 id='qotd'>Quote of the Day</h2>
-      <h2 id='quote'>{quote}</h2>
+      <h2 id='quote'>{quote.quote + " - " + quote.author}</h2>
     </div>
   )
 }

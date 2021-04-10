@@ -14,6 +14,7 @@ import ToDoList from "./todolist";
 import TimeDate from "./date";
 import Timer from "./timer";
 import QOTD from "./qotd";
+import Weather from "./weather"
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ export default class Main extends React.Component {
       showToDo: true,
       showTimer: true,
       showQOTD: true,
+      showWeather: true,
     }
 
     this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -62,6 +64,10 @@ export default class Main extends React.Component {
           control={<Switch checked={this.state.showQOTD} onChange={this.handleChange} name="showQOTD" />}
           label="Quote of the Day"
         />
+        <FormControlLabel
+          control={<Switch checked={this.state.showWeather} onChange={this.handleChange} name="showWeather" />}
+          label="Weather"
+        />
     </FormGroup>
     </div>
   );
@@ -83,6 +89,7 @@ export default class Main extends React.Component {
             { this.state.showDate && <div className="widget"><TimeDate/></div> }
             { this.state.showToDo && <div className="widget"><ToDoList/></div> }
             { this.state.showQOTD && <div className="widget"><QOTD/></div> }
+            { this.state.showWeather && <div className="widget"><Weather/></div> }
           </Grid>
           <Grid item xs={12} md={8}>
             { this.state.showTimer && <div className="widget"><Timer/></div> }
