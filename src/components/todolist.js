@@ -23,12 +23,12 @@ export default class ToDoList extends React.Component {
     render() {
         return (
             <div className = "todo-list">
-                <p>Todo</p>
+                <h2>To Do List</h2>
                 <input type = "text" name = "name"/>
                 <input type = "submit" value = "add" onClick={this.addItem.bind(this)}/>
                 <input type = "submit" value = "remove" onClick={this.removeItem.bind(this)}/>
                 <ol>
-                    <li>{this.state.todolist}</li>
+                    <li><p>{this.state.todolist}</p></li>
                 </ol>
             </div>
         ) // return

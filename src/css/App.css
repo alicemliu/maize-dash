@@ -42,21 +42,25 @@ main {
 /* overriding defaults */
 
 h1 {
-  margin: 0;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
   padding: 0;
 }
 
 h2 {
-  margin: 0;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
   padding: 0;
 }
 
 h3 {
-  margin: 0;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
   padding: 0;
 }
 
 p {
-  margin: 0;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
   font-weight: 300;
 }

@@ -60,7 +60,7 @@ export default class Main extends React.Component {
         />
         <FormControlLabel
           control={<Switch checked={this.state.showQOTD} onChange={this.handleChange} name="showQOTD" />}
-          label="QOTD"
+          label="Quote of the Day"
         />
     </FormGroup>
     </div>
@@ -86,7 +86,6 @@ export default class Main extends React.Component {
           </Grid>
           <Grid item xs={12} md={8}>
             { this.state.showTimer && <div className="widget"><Timer/></div> }
-            <div className="widget"><ToDoList/></div>
           </Grid>
         </Grid>
       </main>
