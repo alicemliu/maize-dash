@@ -1,5 +1,6 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
+import { Rnd } from "react-rnd";
 
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
@@ -21,12 +22,13 @@ export default class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      editMode: false,
       right: false,
       showDate: true,
       showToDo: true,
       showTimer: true,
       showQOTD: true,
-      showWeather: true,
+      showWeather: false,
       showMDining: true
     }
 
@@ -74,6 +76,10 @@ export default class Main extends React.Component {
               control={<Switch checked={this.state.showMDining} onChange={this.handleChange} name="showMDining" />}
                   label="MDining"
         />
+        <FormControlLabel
+              control={<Switch checked={this.state.editMode} onChange={this.handleChange} name="editMode" />}
+                  label="Edit Mode"
+        />
     </FormGroup>
     </div>
   );
@@ -90,18 +96,92 @@ export default class Main extends React.Component {
             </Drawer>
           </div>
         </header>
-        <Grid container='true' container spacing={2}>
-          <Grid item xs={12} md={4}>
-            { this.state.showDate && <div className="widget"><TimeDate/></div> }
-            { this.state.showToDo && <div className="widget"><ToDoList/></div> }
-            { this.state.showQOTD && <div className="widget"><QOTD/></div> }
-            { this.state.showWeather && <div className="widget"><Weather/></div> }
-          </Grid>
-          <Grid item xs={12} md={8}>
-            { this.state.showTimer && <div className="widget"><Timer/></div> }
-            { this.state.showMDining && <div className="widget"><MDining/></div> }
-          </Grid>
-        </Grid>
+        <body>
+          {this.state.showDate && 
+           <Rnd
+            enableResizing = {this.state.editMode}
+            disableDragging = {!this.state.editMode}
+            className="widget"
+            default={{
+              x: 0,
+              y: 0,
+              width: 380,
+              height: 180
+             }}
+          >
+            <TimeDate/> 
+          </Rnd>}
+          {this.state.showToDo && 
+           <Rnd
+            enableResizing = {this.state.editMode}
+            disableDragging = {!this.state.editMode}
+            className="widget"
+            default={{
+              x: 0,
+              y: 200,
+              width: 380,
+              height: 180
+             }}
+          >
+            <ToDoList/> 
+          </Rnd>}
+          {this.state.showQOTD && 
+           <Rnd
+            enableResizing = {this.state.editMode}
+            disableDragging = {!this.state.editMode}
+            className="widget"
+            default={{
+              x: 0,
+              y: 400,
+              width: 380,
+              height: 180
+             }}
+          >
+            <QOTD/> 
+          </Rnd>}
+          {this.state.showWeather && 
+           <Rnd
+            enableResizing = {this.state.editMode}
+            disableDragging = {!this.state.editMode}
+            className="widget"
+            default={{
+              x: 0,
+              y: 600,
+              width: 380,
+              height: 100
+             }}
+          >
+            <Weather/> 
+          </Rnd>}
+          {this.state.showTimer && 
+           <Rnd
+            enableResizing = {this.state.editMode}
+            disableDragging = {!this.state.editMode}
+            className="widget"
+            default={{
+              x: 400,
+              y: 0,
+              width: 780,
+              height: 380
+             }}
+          >
+            <Timer/> 
+          </Rnd>}
+          {this.state.showMDining && 
+           <Rnd
+            enableResizing = {this.state.editMode}
+            disableDragging = {!this.state.editMode}
+            className="widget"
+            default={{
+              x: 400,
+              y: 400,
+              width: 780,
+              height: 180
+             }}
+          >
+            <MDining/> 
+          </Rnd>}
+        </body>
       </main>
     );
   }
