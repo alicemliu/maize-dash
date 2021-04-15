@@ -1,70 +1,87 @@
 import React from "react";
-import { useState , useEffect } from 'react'
 
 import '../css/App.css';
-import '../css/qotd.css';
+import '../css/mdining.css';
 
-export default class MDINING extends React.Component{
+const moment= require('moment') 
+
+export default class MDining extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            date: "2021/04/14", // temp
-            item: "",
-            dininghall: "default dining hall", // temp
-            options: { weekday: 'long', month: 'long', day: 'numeric' }
+            date: null,
+            item: null,
+            meal: 'BREAKFAST',
+            diningHalls: [],
+            matches: 1,
         }
-    } // constructor
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    } 
 
-    getDate(){
-        // temp
-//        this.state.date = "2021/04/14";
-        
+    componentDidMount() {
         const today = new Date();
-        const date = today.getFullYear() + '-0' + (today.getMonth()+1) + '-' + today.getDate();
-        this.state.date = date;
-        console.log("Date: ", this.state.date);
-        
-    } // getDate()
-    
-    getHall(item) {
-        // temp
-        this.state.date = "2021/04/14";
-        this.state.dininghall = "temp hall";
-        
-//        getDate();
-        console.log("Searching for hall");
-        console.log("Date: ", this.state.date);
-        
-    } // getHall()
+        this.setState({ date: moment(today).format('YYYY-MM-DD') });
+    }
 
-    useEffect() {
-      fetch('https://michigan-dining-api.tendiesti.me/v1/foods?name=' + this.state.item + '&date=' + this.state.date + '&meal=DINNER',
-        { 'method': 'GET'})
-      .then((response) => {
-        if(!response.ok) throw Error(response.statusText);
-        if(!response.data.foods[0].diningHallMatch) {
-            alert("No food matches search term!");
-        }
-        this.info = response.data.foods[0].diningHallMatch;
-        return response.json();
-      })
-      .then((data) => {
-//            getHall(data)
-      })
-      .catch((error) => console.log(error));
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value });
+    }  
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log('https://michigan-dining-api.tendiesti.me/v1/foods?name=' + encodeURIComponent(this.state.item) + '&date=' + this.state.date + '&meal=' + this.state.meal);
+        fetch('https://michigan-dining-api.tendiesti.me/v1/foods?name=' + encodeURIComponent(this.state.item) + '&date=' + this.state.date + '&meal=' + this.state.meal,
+        { 'method': 'GET' })
+        .then(response => response.json())
+        .then(data => {
+            const date = this.state.date;
+            for (const [key, value] of Object.entries(data.foods[0].diningHallMatch)) {
+                var hallMatches = []
+                if ((value.mealTime[this.state.date].mealNames).includes(this.state.meal)) {
+                    hallMatches.push(key);
+                }
+            } 
+            this.setState({ diningHalls: hallMatches });
+            this.setState({ matches: hallMatches.length });
+            console.log(this.state.diningHalls);
+            console.log(this.state.matches);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
     }
     
-    render(){
-        // render dining hall
+    render() {
+        const { goods } = this.state
         return(
-            <div class = "mdining">
-               <h1>MDining Menu Search</h1>
-               <p><b>Enter the name of the food:</b></p>
-               <input type = "text" name = "name"/>
-               <input type = "submit" value = "search" onClick={this.getHall.bind(this)}/>
-               <p><b>Available at:</b></p>
-               <p>{this.state.dininghall}</p>
+            <div>
+                <h1>MDining Menu Search</h1>
+                <form onSubmit={this.handleSubmit}>
+                   <label><h2>Search for food:</h2>
+                       <input type="text" value={this.state.item} name="item" onChange={this.handleChange}/>
+                   </label>
+                   <label>
+                       <select value={this.state.meal} name="meal" onChange={this.handleChange}>
+                            <option value="BREAKFAST">BREAKFAST</option>
+                            <option value="LUNCH">LUNCH</option>
+                            <option value="DINNER">DINNER</option>
+                        </select>
+                   </label>
+                   <br/>
+                   <br/>
+                   <button type="submit">Search</button>
+                </form>
+                { this.state.diningHalls.length > 0 &&
+                <div>
+                    <br/>
+                    <h3>Available at:</h3>
+                    <ul>
+                        { this.state.diningHalls.map((hall) => { return <p><li>{hall}</li></p>; })}
+                    </ul> 
+                </div> }
+                { this.state.matches < 1 && <div><br/><p>No matches found!</p></div>}
             </div>
         );
-    } // render()
-} // MDINING
+    }
+    }
