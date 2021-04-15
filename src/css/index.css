@@ -7,4 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   margin: 3em;
+
+  height: 150vh;
 }

@@ -53,7 +53,6 @@ export default class MDining extends React.Component{
     }
     
     render() {
-        const { goods } = this.state
         return(
             <div>
                 <h1>MDining Menu Search</h1>

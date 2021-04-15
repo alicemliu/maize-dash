@@ -86,7 +86,7 @@ export default class Main extends React.Component {
 
   render() {
     return (
-      <main>
+      <div>
         <header>
           <div className="left"><h1>MaizeDash</h1></div>
           <div className="right">
@@ -96,7 +96,7 @@ export default class Main extends React.Component {
             </Drawer>
           </div>
         </header>
-        <body>
+        <main>
           {this.state.showDate && 
            <Rnd
             enableResizing = {this.state.editMode}
@@ -176,13 +176,13 @@ export default class Main extends React.Component {
               x: 400,
               y: 400,
               width: 780,
-              height: 180
+              height: 270
              }}
           >
             <MDining/> 
           </Rnd>}
-        </body>
-      </main>
+        </main>
+      </div>
     );
   }
 }
