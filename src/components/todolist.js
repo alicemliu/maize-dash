@@ -12,12 +12,12 @@ export default class ToDoList extends React.Component {
     }
     addItem(newitem) {
         console.log("Item added")
-        this.state.todolist.append(newitem)
+//        this.state.todolist.append(newitem)
     } // addItem()
     
     removeItem() {
         console.log("Item removed")
-        this.state.todolist.remove()
+//        this.state.todolist.remove()
     } // removeItem()
     
     render() {
