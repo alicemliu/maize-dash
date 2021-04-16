@@ -36,6 +36,11 @@ export default class Spotify extends Component {
         }
         else{
             return (
+                <div>
+                    <h1>Spotify Instructions</h1>
+                    <br></br>
+                    <div>Go to a playlist --> Share --> Copy Spotify URI</div>
+                    <br></br>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label>Spotify Playlist URL</label>
@@ -43,6 +48,8 @@ export default class Spotify extends Component {
                         <button type="submit">Submit</button>
                     </div>
                 </form>
+                </div>
+                
             )
         }
         
