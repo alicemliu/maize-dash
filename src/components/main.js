@@ -31,7 +31,7 @@ export default class Main extends React.Component {
       showQOTD: true,
       showWeather: false,
       showMDining: true,
-      showSpotify: true
+      showSpotify: false
     }
 
     this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -79,14 +79,14 @@ export default class Main extends React.Component {
               control={<Switch checked={this.state.showMDining} onChange={this.handleChange} name="showMDining" />}
                   label="MDining"
         />
+        <FormControlLabel
+              control={<Switch checked={this.state.showSpotify} onChange={this.handleChange} name="showSpotify" />}
+                  label="Spotify"
+        />
         <br/><h2>Settings</h2>
         <FormControlLabel
               control={<Switch checked={this.state.editMode} onChange={this.handleChange} name="editMode" />}
                   label="Edit Mode"
-        />
-        <FormControlLabel
-              control={<Switch checked={this.state.showSpotify} onChange={this.handleChange} name="showSpotify" />}
-                  label="Spotify"
         />
     </FormGroup>
     </div>
@@ -197,7 +197,7 @@ export default class Main extends React.Component {
             default={{
               x: 0,
               y: 600,
-              width: 300,
+              width: 380,
               height: 425
              }}
           >
