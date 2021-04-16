@@ -57,9 +57,9 @@ export default class MDining extends React.Component{
     render() {
         return(
             <div>
-                <h1>MDining Menu Search</h1>
+                <h1>MDining Menu Search</h1><br/>
                 <form onSubmit={this.handleSubmit}>
-                   <label><h2>Search for food:</h2>
+                   <label>
                        <input type="text" value={this.state.item} name="item" onChange={this.handleChange}/>
                    </label>
                    <label>
@@ -71,7 +71,7 @@ export default class MDining extends React.Component{
                    </label>
                    <br/>
                    <br/>
-                   <button type="submit">SEARCH</button>
+                   <button type="submit">SEARCH FOR FOOD</button>
                 </form>
                 { this.state.diningHalls.length > 0 &&
                 <div>
