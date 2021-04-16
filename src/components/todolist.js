@@ -22,9 +22,9 @@ export default class ToDoList extends React.Component {
         */
     } // addItem()
     
-    removeItem() {
+    removeItem = (event) => {
         console.log("Item removed")
-        this.state.todolist.remove()
+        this.setState({todolist: this.state.todolist.splice(1, this.state.todolist.length - 1)})
     } // removeItem()
 
 
@@ -40,7 +40,7 @@ export default class ToDoList extends React.Component {
                     <input type="text" value={this.state.item} onChange={this.setItem}/>
                     <button type="submit">Add</button>
                 </form>
-
+                <button onClick={this.removeItem}>Remove</button>
                 <ol>
                     {this.state.todolist.map((item) => (
                         <li>{item}</li>
