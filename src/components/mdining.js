@@ -30,6 +30,8 @@ export default class MDining extends React.Component{
 
     handleSubmit(event) {
         event.preventDefault();
+        this.setState({ diningHalls: [] });
+        this.setState({ matches: 0 });
         console.log('https://michigan-dining-api.tendiesti.me/v1/foods?name=' + encodeURIComponent(this.state.item) + '&date=' + this.state.date + '&meal=' + this.state.meal);
         fetch('https://michigan-dining-api.tendiesti.me/v1/foods?name=' + encodeURIComponent(this.state.item) + '&date=' + this.state.date + '&meal=' + this.state.meal,
         { 'method': 'GET' })
@@ -69,7 +71,7 @@ export default class MDining extends React.Component{
                    </label>
                    <br/>
                    <br/>
-                   <button type="submit">Search</button>
+                   <button type="submit">SEARCH</button>
                 </form>
                 { this.state.diningHalls.length > 0 &&
                 <div>

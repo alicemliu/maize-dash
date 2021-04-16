@@ -51,6 +51,7 @@ export default class Main extends React.Component {
       onClick={this.toggleDrawer(anchor, false)}
       onKeyDown={this.toggleDrawer(anchor, false)}
     >
+    <h2>Edit Widgets</h2>
     <FormGroup>
         <FormControlLabel
           control={<Switch checked={this.state.showDate} onChange={this.handleChange} name="showDate" />}
@@ -76,6 +77,7 @@ export default class Main extends React.Component {
               control={<Switch checked={this.state.showMDining} onChange={this.handleChange} name="showMDining" />}
                   label="MDining"
         />
+        <br/><h2>Settings</h2>
         <FormControlLabel
               control={<Switch checked={this.state.editMode} onChange={this.handleChange} name="editMode" />}
                   label="Edit Mode"

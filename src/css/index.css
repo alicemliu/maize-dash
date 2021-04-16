@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap');
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,6 +8,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   margin: 3em;
-
+  background-color: #ffe599;
   height: 150vh;
+  color: #00004d;
+
 }

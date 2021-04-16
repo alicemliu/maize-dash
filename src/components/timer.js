@@ -101,11 +101,11 @@ export default class Timer extends React.Component{
                         {hoursStr + ":" + minutesStr + ":" + secondsStr}
                     </div>
                     <div className ="timer-controls">
-                        <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>Start Timer</button>
-                        <button className="btn btn-alert" onClick={this.handleTimerStop.bind(this)}>Stop Timer</button>
-                        <button className="btn btn-info" onClick={this.handleTimerSetHour.bind(this)}>Add Hour</button>
-                        <button className="btn btn-info" onClick={this.handleTimerSetMinute.bind(this)}>Add minute</button>
-                        <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>Reset timer</button>
+                        <button className="btn btn-success" onClick={this.handleTimerStart.bind(this)}>START</button>
+                        <button className="btn btn-alert" onClick={this.handleTimerStop.bind(this)}>STOP</button>
+                        <button className="btn btn-info" onClick={this.handleTimerSetHour.bind(this)}>ADD HOUR</button>
+                        <button className="btn btn-info" onClick={this.handleTimerSetMinute.bind(this)}>ADD MINUTE</button>
+                        <button className="btn btn-danger" onClick={this.handleTimerReset.bind(this)}>RESET</button>
                     </div>
                 </div>
         );

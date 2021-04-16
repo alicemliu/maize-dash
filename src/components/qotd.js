@@ -25,7 +25,7 @@ export default function QOTD() {
 
   return (
     <div >
-      <h2 id='qotd'>Quote of the Day</h2>
+      <h1 id='qotd'>Quote of the Day</h1>
       <h2 id='quote'>{quote.data.quote + " - " + quote.data.author}</h2>
     </div>
   )
