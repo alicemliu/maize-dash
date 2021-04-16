@@ -43,7 +43,7 @@ export default class Spotify extends Component {
                     <br></br>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <label>Spotify Playlist URL</label>
+                        <label>Spotify Playlist URI</label>
                         <br/>
                         <br/>
                         <input type="text" value={this.state.spotify_url} onChange={this.handleSpotifyURL}/>
