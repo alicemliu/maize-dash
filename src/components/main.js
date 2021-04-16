@@ -17,6 +17,7 @@ import Timer from "./timer";
 import QOTD from "./qotd";
 import Weather from "./weather";
 import MDining from "./mdining";
+import Spotify from "./spotify"
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -29,7 +30,8 @@ export default class Main extends React.Component {
       showTimer: true,
       showQOTD: true,
       showWeather: false,
-      showMDining: true
+      showMDining: true,
+      showSpotify: true
     }
 
     this.toggleDrawer = this.toggleDrawer.bind(this);
@@ -81,6 +83,10 @@ export default class Main extends React.Component {
         <FormControlLabel
               control={<Switch checked={this.state.editMode} onChange={this.handleChange} name="editMode" />}
                   label="Edit Mode"
+        />
+        <FormControlLabel
+              control={<Switch checked={this.state.showSpotify} onChange={this.handleChange} name="showSpotify" />}
+                  label="Spotify"
         />
     </FormGroup>
     </div>
@@ -182,6 +188,20 @@ export default class Main extends React.Component {
              }}
           >
             <MDining/> 
+          </Rnd>}
+          {this.state.showSpotify && 
+           <Rnd
+            enableResizing = {this.state.editMode}
+            disableDragging = {!this.state.editMode}
+            className="widget"
+            default={{
+              x: 0,
+              y: 600,
+              width: 300,
+              height: 425
+             }}
+          >
+            <Spotify/> 
           </Rnd>}
         </main>
       </div>
