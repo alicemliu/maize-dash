@@ -38,15 +38,13 @@ export default class ToDoList extends React.Component {
     render() {
         return (
             <div className = "todo-list">
-                <h1>To Do List</h1>
+                <h1>To Do List</h1> 
+                <div style={{width: '70%', display: 'inline-block'}}>
                 <form onSubmit={this.addItem}>
-                    <div id="gap"></div>
-                    <input type="text" value={this.state.item} onChange={this.setItem}/>
-                <div id="gap"></div>
-                    <button type="submit">ADD TO LIST</button>
+                    <input type="text" value={this.state.item} onChange={this.setItem} style={{width: "60%", marginRight: '1em' }}/><button type="submit">ADD</button>
                 </form>
-                <div id="gap"></div>
-                <button onClick={this.removeItem}>REMOVE TOP ITEM</button>
+                </div>
+                <button onClick={this.removeItem} style={{display: 'inline=block'}}>REMOVE</button>
                 <ol>
                     {this.state.todolist.map((item) => (
                         <li>{item}</li>

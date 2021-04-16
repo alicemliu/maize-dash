@@ -91,3 +91,7 @@ button:hover {
   background: #4c64d8;
   color: white;
 }
+
+input {
+  margin-right: 1em;
+}

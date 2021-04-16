@@ -128,7 +128,7 @@ export default class Main extends React.Component {
               x: 0,
               y: 200,
               width: 380,
-              height: 180
+              height: 280
              }}
           >
             <ToDoList/> 
@@ -140,9 +140,9 @@ export default class Main extends React.Component {
             className="widget"
             default={{
               x: 0,
-              y: 400,
+              y: 500,
               width: 380,
-              height: 180
+              height: 300
              }}
           >
             <QOTD/> 
