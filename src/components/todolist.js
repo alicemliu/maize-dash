@@ -1,6 +1,7 @@
 import React from "react";
 
 import '../css/App.css';
+import '../css/todolist.css';
 
 export default class ToDoList extends React.Component {
     constructor(props) {
@@ -9,38 +10,43 @@ export default class ToDoList extends React.Component {
             item: "",
             todolist: []
         };
-    }
+    } // constructor()
+    
     addItem = (event) => {
+        // prevent page from refreshing
         event.preventDefault();
 
-        //this.state.todolist.append(newitem)
+        // add item to todolist
         this.setState({todolist: this.state.todolist.concat(this.state.item)})
-        /*
-        var newArr = this.state.todolist;
-        newArr.push(this.state.item);
-        this.setState({todolist: newArr});
-        */
+        
+        // clear textbox after
+        this.setState({item: ""})
+        
     } // addItem()
     
     removeItem = (event) => {
-        console.log("Item removed")
+        // remove item from todolist
         this.setState({todolist: this.state.todolist.splice(1, this.state.todolist.length - 1)})
     } // removeItem()
 
 
     setItem = (event) => {
+        // set item equal to input from textbox
         this.setState({item: event.target.value}); 
-    }
+    } // setItem()
     
     render() {
         return (
             <div className = "todo-list">
-                <h2>To Do List</h2>
+                <h1>To Do List</h1>
                 <form onSubmit={this.addItem}>
+                    <div id="gap"></div>
                     <input type="text" value={this.state.item} onChange={this.setItem}/>
-                    <button type="submit">Add</button>
+                <div id="gap"></div>
+                    <button type="submit">ADD TO LIST</button>
                 </form>
-                <button onClick={this.removeItem}>Remove</button>
+                <div id="gap"></div>
+                <button onClick={this.removeItem}>REMOVE TOP ITEM</button>
                 <ol>
                     {this.state.todolist.map((item) => (
                         <li>{item}</li>
@@ -50,11 +56,3 @@ export default class ToDoList extends React.Component {
         ) // return
     } // render()
 }
-
-/*
-<input type = "text" name = "name"/>
-                <input type = "submit" value = "add" onClick={this.addItem.bind(this)}/>
-                <input type = "submit" value = "remove" onClick={this.removeItem.bind(this)}/>
-
-                <li><p>{this.state.todolist}</p></li>
-*/
