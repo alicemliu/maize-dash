@@ -195,8 +195,8 @@ export default class Main extends React.Component {
             disableDragging = {!this.state.editMode}
             className="widget"
             default={{
-              x: 0,
-              y: 600,
+              x: 400,
+              y: 675,
               width: 380,
               height: 425
              }}
