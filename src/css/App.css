@@ -33,6 +33,7 @@ header {
   float: right;
   width: 20%;
   text-align: right;
+  display: inline-block;
 }
 
 /* main */

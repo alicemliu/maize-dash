@@ -100,7 +100,12 @@ export default class Main extends React.Component {
           <div className="left"><h1>MaizeDash</h1> </div>
           {this.state.editMode && <div className="edit-message"><p> <b>Resize and Drag Mode Enabled:</b> Hold and drag widgets to move them. Drag from the widget corners to resize. </p></div>}
           <div className="right">
-            <Button onClick={this.toggleDrawer('right', true)}><SettingsIcon/></Button>
+            
+            <Button className="right" onClick={this.toggleDrawer('right', true)}> 
+            <SettingsIcon/>
+           </Button>
+           <h2 className="right">Layout</h2>
+
             <Drawer anchor={'right'} open={this.state['right']} onClose={this.toggleDrawer('right', false)}>
             {this.list('right')}
             </Drawer>
@@ -198,7 +203,7 @@ export default class Main extends React.Component {
             className="widget"
             default={{
               x: 400,
-              y: 50,
+              y: 500,
               width: 380,
               height: 425
              }}

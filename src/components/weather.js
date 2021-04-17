@@ -27,7 +27,7 @@ export default function Weather() {
     <div >
       <h2 id='weather'>Ann Arbor Weather</h2>
       <h2 id='weatherdesc'>{weather.data.weather && weather.data.weather[0].main + ", " + weather.data.weather[0].description 
-      + ". " + Math.round(weather.data.main.temp-273.15) + " \u00B0C"}</h2>
+      + ". " + Math.round((parseInt(weather.data.main.temp) - 273.15) * 1.8 + 32) + " \u00B0F"}</h2>
     </div>
   )
 }
