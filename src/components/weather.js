@@ -10,7 +10,7 @@ export default function Weather() {
   useEffect(() => {
     if(!weather.fetched){
       console.log("Weather fetching")
-      fetch("http://api.openweathermap.org/data/2.5/weather?id=4984247&appid=905af1826830cffe7bc2ae3cbca3d357", 
+      fetch("https://api.openweathermap.org/data/2.5/weather?id=4984247&appid=905af1826830cffe7bc2ae3cbca3d357", 
         { 'method': 'GET'})
       .then((response) => {
         if(!response.ok) throw Error(response.statusText);
