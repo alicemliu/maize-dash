@@ -19,6 +19,13 @@ header {
   display: inline-block;
 }
 
+.edit-message{
+  display: inline-block;
+  color: #FF0000;
+  border-style: solid 2px;
+  border-color: black;
+}
+
 .right {
   float: right;
   width: 20%;
