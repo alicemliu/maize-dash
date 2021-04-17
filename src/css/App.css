@@ -14,13 +14,14 @@ header {
 
 .left {
   float: left;
-  width: 50%;
+  width: 30%;
   text-align: left;
+  display: inline-block;
 }
 
 .right {
   float: right;
-  width: 50%;
+  width: 20%;
   text-align: right;
 }
 
@@ -45,6 +46,7 @@ main {
   min-width: 10vw;
   background-color: #e9f3ff;
   box-shadow: rgba(0, 0, 0, 0.156863) 0px 3px 6px, rgba(0, 0, 0, 0.227451) 0px 3px 6px;
+  display: inline-block;
 }
 
 /* overriding defaults */

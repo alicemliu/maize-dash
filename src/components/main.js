@@ -83,10 +83,10 @@ export default class Main extends React.Component {
               control={<Switch checked={this.state.showSpotify} onChange={this.handleChange} name="showSpotify" />}
                   label="Spotify"
         />
-        <br/><h2>Resize and drag Widgets</h2>
+        <br/><h2>Layout</h2>
         <FormControlLabel
               control={<Switch checked={this.state.editMode} onChange={this.handleChange} name="editMode" />}
-                  label="Edit Mode"
+                  label="Resize and Drag Mode"
         />
     </FormGroup>
     </div>
@@ -96,7 +96,8 @@ export default class Main extends React.Component {
     return (
       <div>
         <header>
-          <div className="left"><h1>MaizeDash</h1></div>
+          <div className="left"><h1>MaizeDash</h1> </div>
+          {this.state.editMode && <p className="left"> <b>Resize and Drag Mode Enabled:</b> Hold and drag widgets to move them. Drag from the widget corners to resize. </p>}
           <div className="right">
             <Button onClick={this.toggleDrawer('right', true)}><MenuRoundedIcon/></Button>
             <Drawer anchor={'right'} open={this.state['right']} onClose={this.toggleDrawer('right', false)}>
