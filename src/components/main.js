@@ -29,7 +29,7 @@ export default class Main extends React.Component {
       showToDo: true,
       showTimer: true,
       showQOTD: true,
-      showWeather: false,
+      showWeather: true,
       showMDining: true,
       showSpotify: false
     }
@@ -92,7 +92,7 @@ export default class Main extends React.Component {
     </div>
   );
 
-  render() {
+ render() {
     return (
       <div>
         <header>
@@ -128,7 +128,7 @@ export default class Main extends React.Component {
               x: 0,
               y: 200,
               width: 380,
-              height: 280
+              height: 330
              }}
           >
             <ToDoList/> 
@@ -139,10 +139,10 @@ export default class Main extends React.Component {
             disableDragging = {!this.state.editMode}
             className="widget"
             default={{
-              x: 0,
-              y: 500,
+              x: 400,
+              y: 200,
               width: 380,
-              height: 300
+              height: 280
              }}
           >
             <QOTD/> 
@@ -153,10 +153,10 @@ export default class Main extends React.Component {
             disableDragging = {!this.state.editMode}
             className="widget"
             default={{
-              x: 0,
-              y: 815,
+              x: 400,
+              y: 0,
               width: 380,
-              height: 100
+              height: 180
              }}
           >
             <Weather/> 
@@ -167,9 +167,9 @@ export default class Main extends React.Component {
             disableDragging = {!this.state.editMode}
             className="widget"
             default={{
-              x: 400,
+              x: 800,
               y: 0,
-              width: 780,
+              width: 480,
               height: 380
              }}
           >
@@ -181,9 +181,9 @@ export default class Main extends React.Component {
             disableDragging = {!this.state.editMode}
             className="widget"
             default={{
-              x: 400,
+              x: 800,
               y: 400,
-              width: 780,
+              width: 480,
               height: 270
              }}
           >
@@ -196,7 +196,7 @@ export default class Main extends React.Component {
             className="widget"
             default={{
               x: 400,
-              y: 675,
+              y: 500,
               width: 380,
               height: 425
              }}
