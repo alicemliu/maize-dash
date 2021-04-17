@@ -10,7 +10,7 @@ export default function Weather() {
   useEffect(() => {
     if(!weather.fetched){
       console.log("Weather fetching")
-      fetch("http://api.openweathermap.org/data/2.5/weather?id=4984247&appid=905af1826830cffe7bc2ae3cbca3d357", 
+      fetch("https://api.openweathermap.org/data/2.5/weather?id=4984247&appid=905af1826830cffe7bc2ae3cbca3d357", 
         { 'method': 'GET'})
       .then((response) => {
         if(!response.ok) throw Error(response.statusText);
@@ -27,7 +27,7 @@ export default function Weather() {
     <div >
       <h2 id='weather'>Ann Arbor Weather</h2>
       <h2 id='weatherdesc'>{weather.data.weather && weather.data.weather[0].main + ", " + weather.data.weather[0].description 
-      + ". " + Math.round(weather.data.main.temp-273.15) + " \u00B0C"}</h2>
+      + ". " + Math.round((parseInt(weather.data.main.temp) - 273.15) * 1.8 + 32) + " \u00B0F"}</h2>
     </div>
   )
 }
