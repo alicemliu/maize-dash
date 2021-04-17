@@ -20,7 +20,7 @@ export default class MDining extends React.Component{
     } 
 
     componentDidMount() {
-        const today = new Date();
+        const today = new Date(2021, 2, 31);
         this.setState({ date: moment(today).format('YYYY-MM-DD') });
     }
 
