@@ -20,10 +20,13 @@ header {
 }
 
 .edit-message{
+  float: left;
+  width: 30%;
+  text-align: left;
   display: inline-block;
-  color: #FF0000;
-  border-style: solid 2px;
-  border-color: black;
+  border: solid 1px #FF0000;;
+  padding: 10px;
+  border-radius: 1em;
 }
 
 .right {
