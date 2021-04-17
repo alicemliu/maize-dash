@@ -29,6 +29,7 @@ export default class Timer extends React.Component{
                         this.setState({timerStarted: false, timerStopped: true});
                         this.setState((prevState) => ({seconds: 1}));
                         clearInterval(this.timer);
+                        alert("Timer has ended!");
                         
                     }
                     if(this.state.seconds <= 0){
