@@ -5,6 +5,7 @@ import { Rnd } from "react-rnd";
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import MenuRoundedIcon from '@material-ui/icons/MenuRounded';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -99,7 +100,7 @@ export default class Main extends React.Component {
           <div className="left"><h1>MaizeDash</h1> </div>
           {this.state.editMode && <div className="edit-message"><p> <b>Resize and Drag Mode Enabled:</b> Hold and drag widgets to move them. Drag from the widget corners to resize. </p></div>}
           <div className="right">
-            <Button onClick={this.toggleDrawer('right', true)}><MenuRoundedIcon/></Button>
+            <Button onClick={this.toggleDrawer('right', true)}><SettingsIcon/></Button>
             <Drawer anchor={'right'} open={this.state['right']} onClose={this.toggleDrawer('right', false)}>
             {this.list('right')}
             </Drawer>
@@ -170,7 +171,7 @@ export default class Main extends React.Component {
             default={{
               x: 800,
               y: 0,
-              width: 480,
+              width: 520,
               height: 380
              }}
           >
@@ -184,7 +185,7 @@ export default class Main extends React.Component {
             default={{
               x: 800,
               y: 400,
-              width: 480,
+              width: 520,
               height: 270
              }}
           >
@@ -197,7 +198,7 @@ export default class Main extends React.Component {
             className="widget"
             default={{
               x: 400,
-              y: 500,
+              y: 50,
               width: 380,
               height: 425
              }}

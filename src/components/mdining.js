@@ -60,7 +60,7 @@ export default class MDining extends React.Component{
                 <h1>MDining Menu Search</h1><br/>
                 <form onSubmit={this.handleSubmit}>
                    <label>
-                       <input type="text" value={this.state.item} name="item" onChange={this.handleChange}/>
+                       <input type="text" value={this.state.item} name="item" onChange={this.handleChange} style={{width:"65%"}}/>
                    </label>
                    <label>
                        <select value={this.state.meal} name="meal" onChange={this.handleChange}>
