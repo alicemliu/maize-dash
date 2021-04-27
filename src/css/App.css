@@ -58,6 +58,7 @@ main {
   background-color: #e9f3ff;
   box-shadow: rgba(0, 0, 0, 0.156863) 0px 3px 6px, rgba(0, 0, 0, 0.227451) 0px 3px 6px;
   display: inline-block;
+  overflow: scroll;
 }
 
 /* overriding defaults */
